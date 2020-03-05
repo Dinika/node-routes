@@ -2,13 +2,13 @@ const express = require('express');
 
 const app = express();
 
-app.use(function (req, res, next) {
-  console.log('First middleware');
-  next();
+app.use('/users', function (req, res, next) {
+  console.log('users middleware')
+  res.send('Or is this a fantasy?');
 });
 
 app.use(function (req, res, next) {
-  console.log('Second middleware');
+  console.log('Common middleware');
   res.send('<p>Is this the real life?</p>');
 });
 
